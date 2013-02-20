@@ -1,0 +1,5 @@
+#!/bin/bash
+export JAVA_OPTIONS="-Dframework.database=ss -Dframework.switchOnFullTextSearch=false -Dframework.log.dir=/home/ben/wls_log_ss -Djava.security.auth.login.config=/home/ben/wlsdomain/base_domain/config/jaas.config -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n -javaagent:/home/ben/wlsdomain/base_domain/lib/aspectjweaver.jar -Dtoplink.xml.platform=oracle.toplink.platform.xml.jaxp.JAXPPlatform"
+cd /home/ben/wlsdomain/base_domain/config/jdbc
+ln -sf sqlserverDS.txt OracleDS-0429-jdbc.xml
+../../startWebLogic.sh

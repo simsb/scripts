@@ -1,0 +1,1 @@
+/home/ben/bin/WebStorm-121.390/bin/webstorm.sh

@@ -1,0 +1,1 @@
+WebStorm-123.66/bin/webstorm.sh

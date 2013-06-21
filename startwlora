@@ -1,5 +1,5 @@
 #!/bin/bash
-export JAVA_OPTIONS="-Dframework.database=oracle -Dframework.switchOnFullTextSearch=false -Dframework.log.dir=/home/ben/wls_log_ora -Djava.security.auth.login.config=/home/ben/wlsdomain/base_domain/config/jaas.config -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n -javaagent:/home/ben/wlsdomain/base_domain/lib/aspectjweaver.jar -Dtoplink.xml.platform=oracle.toplink.platform.xml.jaxp.JAXPPlatform"
+export JAVA_OPTIONS="-Dframework.database=oracle -Dframework.switchOnFullTextSearch=false -Dframework.log.dir=/home/ben/wls_log_ora -Djava.security.auth.login.config=/home/ben/wlsdomain/base_domain/config/jaas.config -Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n -javaagent:/home/ben/wlsdomain/base_domain/lib/aspectjweaver.jar -Dtoplink.xml.platform=oracle.toplink.platform.xml.jaxp.JAXPPlatform -Dfile.encoding=UTF-8"
 cd /home/ben/wlsdomain/base_domain/config/jdbc
 ln -sf oracleDS.txt OracleDS-0429-jdbc.xml
 ../../startWebLogic.sh

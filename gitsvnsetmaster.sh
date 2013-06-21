@@ -18,5 +18,6 @@ then
 else
     echo "Now operating on $1 svn tracking branch"
     echo $1 > ~/.gitsvnactivetrackingbranch
+    touch ~/.$1
     exit
 fi

@@ -16,11 +16,15 @@ then
     exit
 fi
 echo "Starting jslinting..."
-git stash
+if [ -n "$(git status --porcelain)" ]
+then
+    echo [ "Branch has changed or untracked files. " ]
+    exit
+fi
 git checkout $activeTrackingBranch
 ant jslint > ~/jslint_$activeTrackingBranch
 git checkout $currentBranch
 ant jslint > ~/jslint_$currentBranch
-git stash pop
+
 diff ~/jslint_$activeTrackingBranch ~/jslint_$currentBranch
 

@@ -16,7 +16,7 @@ then
     exit
 else
     echo "Branching from $activeTrackingBranch"
-    git checkout -b $1 
-    echo $1>>~/.$activeTrackingBranch
+    git checkout -b "$activeTrackingBranch.$1"
+    echo "$activeTrackingBranch.$1">>~/.$activeTrackingBranch
     exit
 fi

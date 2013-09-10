@@ -6,19 +6,19 @@ activeTrackingBranch="$(cat ~/.gitsvnactivetrackingbranch)";
 
 if [ -z "$activeTrackingBranch" ]
 then
-    echo "Run gitmaster to set the active tracking branch"
+    echo "Run gitsvnsetmaster.sh to set the current active tracking branch"
     exit
 fi
 
 if [ -n "$(git status --porcelain)" ]
     then
-        echo [ "Branch has changed or untracked files which must be committed of stashed before rebasing. " ]
+        echo [ "This branch has changed or untracked files which must be committed or stashed before rebasing." ]
         exit
 fi
 
 if [[ `grep $currentBranch ~/.$activeTrackingBranch` =~ $currentBranch ]] && [ "$currentBranch" != "$activeTrackingBranch" ]
 then
-    echo "rebasing $currentBranch from $activeTrackingBranch";
+    echo "rebasing feature branch $currentBranch from active tracking branch $activeTrackingBranch";
     git rebase $activeTrackingBranch
     exit
 fi
@@ -26,12 +26,12 @@ fi
 
 if [ "$currentBranch" != "$activeTrackingBranch" ];
 then
-    echo "Can only run on $activeTrackingBranch branch."
+    echo "Can only run on $activeTrackingBranch branch or one of its feature branches."
     exit
 else
     if [ "$currentBranch" = "$activeTrackingBranch" ]
     then
-        echo "Rebasing $activeTrackingBranch"
+        echo "Rebasing $activeTrackingBranch from svn"
         git svn rebase
     fi
     exit

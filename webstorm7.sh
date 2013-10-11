@@ -1,0 +1,1 @@
+/opt/WebStorm-131.202/bin/webstorm.sh
